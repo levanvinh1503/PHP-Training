@@ -3,6 +3,7 @@
 $arr = ["Bút bi","Bút chì","Bút mực","Bút dạ quang"];
 $arrDiff = ["Bút","Bút chì","Bút mực","Bút dạ"];
 $arrNumber = ["2","2","3","4","5","6"];
+$arrNumberPlus = ["1","1","1","3","2","1"];
 $str = "HP,Dell,Asus,Lenovo";
 $arrField = array(
 	"ID" => "1",
@@ -194,25 +195,30 @@ function ArrayFilter($arr)
 	print_r($arrayFilter);
 }
 
-//define function 
-function ArrayMap($arr)
+//define function ArrayMap
+function ArrayMap($arr, $arrPlus)
 {
-	//
-	$arrayMap = array_map(function($result){
-		return $result;
-	}, $arr);
+	function FilterArrayMap(&$itemArr, $arrPlusRequest)
+	{
+		$result = $itemArr + $arrPlusRequest;
+		return "$result <br />";
+	}
+	//Repeats all elements of the array and passes to the predefined callback function of the user. The callback function handles parts of the array as parameters and it will repeat until all the elements of the array have been passed.
+	$arrayMap = array_map("FilterArrayMap", $arr, $arrPlus);
 	print_r($arrayMap);
 }
 
-//define function
-function ArrayWalk($arr)
+//define function ArrayWalk
+function ArrayWalk($arr, $valueInput)
 {
-	//
-	$arrayWalk = array_walk($arr, function(&$result, $key){
-		$result++;
-	});
-	print_r($arrayWalk);
+	function FilterArrayWalk(&$item, $key, $valueRequest)
+	{
+		$result = $item + $valueRequest;
+		echo "$item ~ $result <br>";
+	}
+	//Repeats all elements of the array and passes to the predefined callback function of the user. The callback function handles portions of the array as parameters and it will repeat until all elements of the array have been moved and custom variables are added.
+	array_walk($arr, 'FilterArrayWalk',$valueInput);
 }
 
 //called functions
-ArrayFilter($arrNumber);
+ArrayWalk($arrNumber, "3");
