@@ -25,4 +25,3 @@ if (isset($varFour)) {
 }else {
 	echo "false";
 }
-?>
