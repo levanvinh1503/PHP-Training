@@ -1,16 +1,18 @@
 <?php 
 //Ex Comparison between == and ===
-$varStringOne = 100;
-$varStringTwo = "100";
+$varStringFirst = 100;
+$varStringSecond = "100";
 
 //Operator ==
-if ($varStringOne == $varStringTwo) {
+echo "Operator == of 100 and '100':<br/>";
+if ($varStringFirst == $varStringSecond) {
 	echo "True";
 }else{
 	echo "False";
 }
 //Operator ===
-if ($varStringOne === $varStringTwo) {
+echo "<br/>Operator === of 100 and '100':<br/>";
+if ($varStringFirst === $varStringSecond) {
 	echo "True";
 }else{
 	echo "False";
