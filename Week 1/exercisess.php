@@ -19,6 +19,7 @@ $arrThird = [43,2,52,8,39,4];
 
 function ExArray($arrFirst, $arrSecond, $arrThird)
 {
+	//check is array
 	if (is_array($arrFirst) && is_array($arrSecond) && is_array($arrThird)) {
 		function ArrayIn($arr)
 		{
@@ -31,6 +32,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 			}
 		}
 
+		//Merge two array
 		function ArrayMerge($arrFirst, $arrSecond)
 		{
 			//Adding two records together, the same field will receive the last record of that field
@@ -42,6 +44,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 			return $arrayImplode;
 		}
 
+		//Filter array
 		function ArrayFilter($arr)
 		{
 			//
@@ -65,6 +68,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 			return $arrayImplode;
 		}
 
+		//Sort Array
 		function ArraySort($arrFirst, $arrSecond)
 		{
 			$stringToArray = explode(",", $arrSecond);
@@ -73,6 +77,8 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 			$arrayImplode = implode(",",$arraySort);
 			return $arrayImplode;
 		}
+
+		//Diffkey array
 		function ArrayDiffKey($arrFirst, $arrSecond)
 		{
 			$stringToArray = explode(",", $arrSecond);
@@ -88,6 +94,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 			$array_walk = array_walk($arrFirst, "FilterArrayWalk", $stringToArray);
 		}
 
+		//Called function
 		ArrayIn($arrFirst);
 		$arrMerge = ArrayMerge($arrSecond,$arrThird);
 		echo "$arrMerge <br>";
@@ -113,4 +120,5 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 	}
 }
 
+//called function
 ExArray($arrFirst,$arrSecond,$arrThird);
