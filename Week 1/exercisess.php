@@ -5,19 +5,16 @@ $arrSecond = [5,3,6,2,9,9];
 $arrThird = [43,2,52,8,39,4];
 
 /**
- * 
+ *
+ * Php array exercises
  * 
  * @param array $arrFirst
  * @param array $arrSecond
  * @param array $arrThird
  *
- * @return TRUE if it finds the number 1 in the array
- * @return TRUE if it finds the number 1 in the array
- * @return TRUE if it finds the number 1 in the array
- * @return TRUE if it finds the number 1 in the array
- * @return TRUE if it finds the number 1 in the array
+ * @return string
  *
- * @throws LogicException Invalid parameter
+ * @throws LogicException Invalid parameter @param
  */
 
 function ExArray($arrFirst, $arrSecond, $arrThird)
