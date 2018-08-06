@@ -1,5 +1,14 @@
 <?php
-//define function find $subString in $string
+/**
+ * FindString Find the string in the string
+ * 
+ * @param string $string
+ * @param string $subString
+ *
+ * @return bool true or false
+ *
+ * @throws LogicExeption Invalid parameter
+ */
 function FindString($string, $subString)
 {
 	//check $string and $subString is string
@@ -13,3 +22,5 @@ function FindString($string, $subString)
 		echo "Invalid parameter ";
 	}
 }
+
+//called function

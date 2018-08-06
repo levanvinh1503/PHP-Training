@@ -22,7 +22,7 @@ $arrFieldDiff = array(
  *
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayUnShift($arr)
 {
@@ -40,7 +40,7 @@ function ArrayUnShift($arr)
  *
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArraySort($arr)
 {
@@ -55,7 +55,7 @@ function ArraySort($arr)
  * 
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayDeleteDuplicated($arr)
 {
@@ -72,7 +72,7 @@ function ArrayDeleteDuplicated($arr)
  * 
  * @param array $arr
  *
- * @return string
+ * @return void
  */
 function ArrayImplode($arr)
 {
@@ -87,7 +87,7 @@ function ArrayImplode($arr)
  * 
  * @param string $str
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayExplode($str)
 {
@@ -104,7 +104,7 @@ function ArrayExplode($str)
  * 
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayKeys($arr)
 {
@@ -121,7 +121,7 @@ function ArrayKeys($arr)
  * 
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayValues($arr)
 {
@@ -139,7 +139,7 @@ function ArrayValues($arr)
  * @param array $arr  
  * @param string $value
  *
- * @return string True or False
+ * @return void True or False
  */
 function ArrayIn($arr, $value)
 {
@@ -159,7 +159,7 @@ function ArrayIn($arr, $value)
  * @param array $arr  
  * @param string $value
  *
- * @return string True or False
+ * @return void True or False
  */
 function ArrayKeyExit($arr, $value)
 {
@@ -178,7 +178,7 @@ function ArrayKeyExit($arr, $value)
  * 
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayShift($arr)
 {
@@ -195,7 +195,7 @@ function ArrayShift($arr)
  * 
  * @param array $arr
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayPop($arr)
 {
@@ -213,7 +213,7 @@ function ArrayPop($arr)
  * @param array $arrFirst
  * @param array $arrSecond
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayDiff($arrFirst, $arrSecond)
 {
@@ -229,7 +229,7 @@ function ArrayDiff($arrFirst, $arrSecond)
  * @param array $arrFirst
  * @param array $arrSecond
  *
- * @return string List the key and the value of the array
+ * @return void List the key and the value of the array
  */
 function ArrayDiffKey($arrFirst, $arrSecond)
 {
@@ -245,7 +245,7 @@ function ArrayDiffKey($arrFirst, $arrSecond)
  * @param array $arrFirst 
  * @param array $arrSecond
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayIntersect($arrFirst, $arrSecond)
 {
@@ -261,7 +261,7 @@ function ArrayIntersect($arrFirst, $arrSecond)
  * @param array $arrFirst
  * @param array $arrSecond
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayIntersectKey($arrFirst, $arrSecond)
 {
@@ -277,7 +277,7 @@ function ArrayIntersectKey($arrFirst, $arrSecond)
  * @param array $arrFirst 
  * @param array $arrSecond
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayMerge($arrFirst, $arrSecond)
 {
@@ -293,7 +293,7 @@ function ArrayMerge($arrFirst, $arrSecond)
  * @param array $arrFirst 
  * @param array $arrSecond
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayMergeRecursive($arrFirst, $arrSecond)
 {
@@ -309,7 +309,7 @@ function ArrayMergeRecursive($arrFirst, $arrSecond)
  * @param array $arrFirst 
  * @param array $arrSecond
  * 
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayPlusArray($arrFirst, $arrSecond)
 {
@@ -324,7 +324,7 @@ function ArrayPlusArray($arrFirst, $arrSecond)
  * 
  * @param array $arr
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayFilter($arr)
 {
@@ -343,7 +343,7 @@ function ArrayFilter($arr)
  * @param array $arr
  * @param string $valuePlus
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayMap($arr, $valuePlus)
 {
@@ -373,7 +373,7 @@ function ArrayMap($arr, $valuePlus)
  * @param array $arr
  * @param string $valueInput
  *
- * @return string List the key and the values of the array
+ * @return void List the key and the values of the array
  */
 function ArrayWalk($arr, $valueInput)
 {
@@ -385,7 +385,7 @@ function ArrayWalk($arr, $valueInput)
 	 * @param string $key
 	 * @param string $valueRequest
 	 *
-	 * @return string The value old and the value new of the array
+	 * @return void The value old and the value new of the array
 	 */
     function FilterArrayWalk(&$item, $key, $valueRequest)
     {

@@ -7,7 +7,7 @@ $doubleQouteString = "\$Helloword";
 //substring
 $subString = substr($doubleQouteString, 1,5);
 //find string in string
-$findString = strpos(, needle)
+$findString = strpos($singleQouteString, 'He');
 
 echo $singleQouteString . "<br>";
 echo $doubleQouteString . "<br>";

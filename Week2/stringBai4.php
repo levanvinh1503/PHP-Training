@@ -1,10 +1,10 @@
 <?php
 /**
- * Trim String
+ * Trim String Remove character parameter in the string
  *
- * @param [string] $myStr 
+ * @param string $myStr 
  *
- * @return string
+ * @return void
  *
  * @throws LogicException Invalid parameter
  */
@@ -12,11 +12,25 @@
 function TrimString($myStr)
 {
 	if (is_string($myStr)) {
+		/**
+		 * SubStringWithTrim Remove characters from both sides of a string
+		 * 
+		 * @param string $str
+		 *
+		 * @return void
+		 */
 		function SubStringWithTrim($str)
 		{
 			echo trim($str, "m");
 		}
 
+        /**
+         * SubStringWithLTrim Removes whitespace or other predefined characters from the left side of a string
+         * 
+         * @param string $str
+         *
+         * @return void
+         */
 		function SubStringWithLTrim($str)
 		{
 			$strRevString = strrev($str);
