@@ -13,7 +13,7 @@ function FindString($string, $subString)
 {
     //check $string and $subString is string
     if (is_string($string) && is_string($subString)) {
-        if (strpos($string,$subString)) {
+        if (strpos($string, $subString)) {
             return true;
         }else {
             return false;
