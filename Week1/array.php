@@ -26,9 +26,9 @@ $arrFieldDiff = array(
  */
 function ArrayUnShift($arr)
 {
-	//add value to array arr
+    //add value to array arr
     array_unshift($arr, "Bút dạ quang");
-	//iterate array arr
+    //iterate array arr
     foreach ($arr as $key=>$value) {
         echo "$key => $value ";
     }
@@ -108,7 +108,7 @@ function ArrayExplode($str)
  */
 function ArrayKeys($arr)
 {
-	//select field of array
+    //select field of array
     $arrayKey = array_keys($arr);
     foreach ($arrayKey as $key=>$value) {
         echo "$key => $value ";
@@ -125,7 +125,7 @@ function ArrayKeys($arr)
  */
 function ArrayValues($arr)
 {
-	//select record of array
+    //select record of array
     $arrayInput = array_values($arr);
     foreach ($arrayInput as $key=>$value) {
         echo "$key => $value ";
@@ -143,7 +143,7 @@ function ArrayValues($arr)
  */
 function ArrayIn($arr, $value)
 {
-	//Check the value in the array
+    //Check the value in the array
     $arrayIn = in_array($value, $arr);
     if ($arrayIn) {
         echo "True";
@@ -163,7 +163,7 @@ function ArrayIn($arr, $value)
  */
 function ArrayKeyExit($arr, $value)
 {
-	//Check the field name for the array
+    //Check the field name for the array
     $arrayKeyExit = array_key_exists($value, $arr);
     if ($arrayKeyExit) {
         echo "True";
@@ -182,7 +182,7 @@ function ArrayKeyExit($arr, $value)
  */
 function ArrayShift($arr)
 {
-	//Get and delete the first value of the array
+    //Get and delete the first value of the array
     array_shift($arr);
     foreach ($arr as $key=>$value) {
         echo "$key => $value ";
@@ -199,7 +199,7 @@ function ArrayShift($arr)
  */
 function ArrayPop($arr)
 {
-	//Get and delete the last value of the array
+    //Get and delete the last value of the array
     array_pop($arr);
     foreach ($arr as $key=>$value) {
         echo "$key => $value ";
@@ -217,7 +217,7 @@ function ArrayPop($arr)
  */
 function ArrayDiff($arrFirst, $arrSecond)
 {
-	//Get different values of 2 arrays
+    //Get different values of 2 arrays
     $arrayDiff = array_diff($arrFirst, $arrSecond);
     print_r($arrayDiff);
 }
@@ -233,7 +233,7 @@ function ArrayDiff($arrFirst, $arrSecond)
  */
 function ArrayDiffKey($arrFirst, $arrSecond)
 {
-	//Get different the first values of 2 arrays
+    //Get different the first values of 2 arrays
     $arrayDiffKey = array_diff_key($arrFirst, $arrSecond);
     print_r($arrayDiffKey);
 }
@@ -249,7 +249,7 @@ function ArrayDiffKey($arrFirst, $arrSecond)
  */
 function ArrayIntersect($arrFirst, $arrSecond)
 {
-	//Get values of two arrays including field values and records
+    //Get values of two arrays including field values and records
     $arrayIntersect = array_intersect($arrFirst, $arrSecond);
     print_r($arrayIntersect);
 }
@@ -265,7 +265,7 @@ function ArrayIntersect($arrFirst, $arrSecond)
  */
 function ArrayIntersectKey($arrFirst, $arrSecond)
 {
-	//Get the first values of two arrays including field values and records
+    //Get the first values of two arrays including field values and records
     $arrayIntersectKey = array_intersect_key($arrFirst, $arrSecond);
     print_r($arrayIntersectKey);
 }
@@ -281,7 +281,7 @@ function ArrayIntersectKey($arrFirst, $arrSecond)
  */
 function ArrayMerge($arrFirst, $arrSecond)
 {
-	//Add two array, the same field will receive the last record of that field
+    //Add two array, the same field will receive the last record of that field
     $arrayMerge = array_merge($arrFirst,$arrSecond);
     print_r($arrayMerge);
 }
@@ -297,7 +297,7 @@ function ArrayMerge($arrFirst, $arrSecond)
  */
 function ArrayMergeRecursive($arrFirst, $arrSecond)
 {
-	//Add two arrays, the same field will be an array of records of 2 tables
+    //Add two arrays, the same field will be an array of records of 2 tables
     $arrayMergeRecursive = array_merge_recursive($arrFirst,$arrSecond);
     print_r($arrayMergeRecursive);
 }
@@ -313,7 +313,7 @@ function ArrayMergeRecursive($arrFirst, $arrSecond)
  */
 function ArrayPlusArray($arrFirst, $arrSecond)
 {
-	//Add two records, the same field will receive the first record of that field
+    //Add two records, the same field will receive the first record of that field
     $arrayPlusArray = $arrFirst + $arrSecond;
     print_r($arrayPlusArray);
 }
@@ -328,7 +328,7 @@ function ArrayPlusArray($arrFirst, $arrSecond)
  */
 function ArrayFilter($arr)
 {
-	//Filter the values in the table
+    //Filter the values in the table
     $arrayFilter = array_filter($arr, function($result){
         return $result < 4 ;
     });
@@ -347,21 +347,21 @@ function ArrayFilter($arr)
  */
 function ArrayMap($arr, $valuePlus)
 {
-	/**
-	 * 
-	 * FilterArrayMap The value of array 1 plus the parameter value
-	 * 
-	 * @param array &$itemArr
-	 * @param string $valuePlusRequest
-	 *
-	 * @return string The values of the array
-	 */
+    /**
+     * 
+     * FilterArrayMap The value of array 1 plus the parameter value
+     * 
+     * @param array &$itemArr
+     * @param string $valuePlusRequest
+     *
+     * @return string The values of the array
+     */
     function FilterArrayMap(&$itemArr, $valuePlusRequest)
     {
         $result = $itemArr + $valuePlusRequest;
         return "$result <br />";
     }
-	//
+    //
     $arrayMap = array_map("FilterArrayMap", $arr, $valuePlus);
     print_r($arrayMap);
 }
@@ -377,22 +377,22 @@ function ArrayMap($arr, $valuePlus)
  */
 function ArrayWalk($arr, $valueInput)
 {
-	/**
-	 * 
-	 * FilterArrayWalk The value of array 1 plus the parameter value 
-	 * 
-	 * @param string &$item
-	 * @param string $key
-	 * @param string $valueRequest
-	 *
-	 * @return void The value old and the value new of the array
-	 */
+    /**
+     * 
+     * FilterArrayWalk The value of array 1 plus the parameter value 
+     * 
+     * @param string &$item
+     * @param string $key
+     * @param string $valueRequest
+     *
+     * @return void The value old and the value new of the array
+     */
     function FilterArrayWalk(&$item, $key, $valueRequest)
     {
         $result = $item + $valueRequest;
         echo "$item ~ $result <br>";
     }
-	//
+    //
     array_walk($arr, 'FilterArrayWalk',$valueInput);
 }
 

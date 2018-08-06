@@ -14,13 +14,13 @@ $varFour = "";
  */
 function EmptyIsset($varFirst)
 {
-	// empty return true
+    // empty return true
     if (empty($varFirst)) {
         echo "true";
     } else {
         echo "false";
     }
-	// isset return false
+    // isset return false
     if (isset($varFirst)) {
         echo "true";
     }else {
