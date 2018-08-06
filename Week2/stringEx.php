@@ -3,6 +3,7 @@
 $singleQouteString = '$Helloword';
 //define double qoute string
 $doubleQouteString = "\$Helloword";
+//define 
 //substring
 $subString = substr($doubleQouteString, 1,5);
 //find string in string
