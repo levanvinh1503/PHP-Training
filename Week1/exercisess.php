@@ -21,6 +21,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
 {
 	//check is array
 	if (is_array($arrFirst) && is_array($arrSecond) && is_array($arrThird)) {
+
 		function ArrayIn($arr)
 		{
 			//Check the value for the array
