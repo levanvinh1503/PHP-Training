@@ -16,7 +16,6 @@ $arrThird = [43,2,52,8,39,4];
  *
  * @throws LogicException Invalid parameter @param
  */
-
 function ExArray($arrFirst, $arrSecond, $arrThird)
 {
     //check is array
@@ -34,7 +33,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
             $arrayIn = in_array(1, $arr);
             if ($arrayIn) {
                 echo "Found <br>";
-            }else {
+            } else {
                 echo "Not found <br>";
             }
         }
@@ -76,7 +75,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
                     for ($i = 0; $i < $countString; $i++) {
                         $sumItems += $stringItems[$i];
                     }
-                }else {
+                } else {
                     $sumItems += $stringItems[0];
                 }
                 if ($sumItems % 2 == 0) {

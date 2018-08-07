@@ -23,7 +23,7 @@ function EmptyIsset($varFirst)
     // isset return false
     if (isset($varFirst)) {
         echo "true";
-    }else {
+    } else {
         echo "false";
     }
 }

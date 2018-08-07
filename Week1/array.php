@@ -147,7 +147,7 @@ function ArrayIn($arr, $value)
     $arrayIn = in_array($value, $arr);
     if ($arrayIn) {
         echo "True";
-    }else {
+    } else {
         echo "False";
     }
 }
@@ -167,7 +167,7 @@ function ArrayKeyExit($arr, $value)
     $arrayKeyExit = array_key_exists($value, $arr);
     if ($arrayKeyExit) {
         echo "True";
-    }else {
+    } else {
         echo "False";
     }
 }
@@ -282,7 +282,7 @@ function ArrayIntersectKey($arrFirst, $arrSecond)
 function ArrayMerge($arrFirst, $arrSecond)
 {
     //Add two array, the same field will receive the last record of that field
-    $arrayMerge = array_merge($arrFirst,$arrSecond);
+    $arrayMerge = array_merge($arrFirst, $arrSecond);
     print_r($arrayMerge);
 }
 
@@ -298,7 +298,7 @@ function ArrayMerge($arrFirst, $arrSecond)
 function ArrayMergeRecursive($arrFirst, $arrSecond)
 {
     //Add two arrays, the same field will be an array of records of 2 tables
-    $arrayMergeRecursive = array_merge_recursive($arrFirst,$arrSecond);
+    $arrayMergeRecursive = array_merge_recursive($arrFirst, $arrSecond);
     print_r($arrayMergeRecursive);
 }
 
@@ -393,7 +393,7 @@ function ArrayWalk($arr, $valueInput)
         echo "$item ~ $result <br>";
     }
     //
-    array_walk($arr, 'FilterArrayWalk',$valueInput);
+    array_walk($arr, 'FilterArrayWalk', $valueInput);
 }
 
 //called functions
