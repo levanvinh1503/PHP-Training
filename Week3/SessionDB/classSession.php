@@ -9,6 +9,8 @@ class classSession
 {
     /**
      * statusDB object
+     *
+     * @var string
      */
     private $statusDB;
 
