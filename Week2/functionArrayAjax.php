@@ -3,20 +3,20 @@ if (isset($_POST["arrayNumber"])) {
     /**
      * SumAndMultiValueArray Sum and multiplicative the values of array
      * 
-     * @param string $string
+     * @param string $stringInput
      *
      * return void List the key and the value of array
      */
-    function SumAndMultiValueArray($string)
+    function SumAndMultiValueArray($stringInput)
     {
         //convert string to array
-        $array = explode(",", $_POST["arrayNumber"]);
+        $arrayString = explode(",", $stringInput);
         $arrayResult = array();
         $sumValueArray = 0;
         $multiValueArray = 1;
-        foreach ($array as $key=>$value) {
-            $sumValueArray += $value;
-            $multiValueArray *= $value;
+        foreach ($arrayString as $keyArray => $valueArray) {
+            $sumValueArray += $valueArray;
+            $multiValueArray *= $valueArray;
         }
         //Add value $multiValueArray to array
         array_unshift($arrayResult, $multiValueArray);

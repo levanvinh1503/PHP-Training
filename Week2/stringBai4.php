@@ -8,32 +8,31 @@
  *
  * @throws LogicException Invalid parameter
  */
-
 function TrimString($myStr)
 {
     if (is_string($myStr)) {
         /**
          * SubStringWithTrim Remove characters from both sides of a string
          * 
-         * @param string $str
+         * @param string $stringInput
          *
          * @return void
          */
-        function SubStringWithTrim($str)
+        function SubStringWithTrim($stringInput)
         {
-            echo trim($str, "m");
+            echo trim($stringInput, "m");
         }
 
         /**
          * SubStringWithLTrim Removes whitespace or other predefined characters from the left side of a string
          * 
-         * @param string $str
+         * @param string $stringInput
          *
          * @return void
          */
-        function SubStringWithLTrim($str)
+        function SubStringWithLTrim($stringInput)
         {
-            $strRevString = strrev($str);
+            $strRevString = strrev($stringInput);
             echo ltrim($strRevString, "m");
         }
 
@@ -43,9 +42,3 @@ function TrimString($myStr)
         echo "Invalid parameter";
     }
 }
-
-//define variable
-$string = "trim";
-
-//called function  
-TrimString($string);

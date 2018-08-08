@@ -1,11 +1,4 @@
 <?php
-//define variable
-$varNumFirst = 20;
-$varNumSecond = 10;
-$varNumArray = 5;
-$varListArray = ["Bút mực","Bút chì","Bút bi","Bút dạ quang"];
-$varSwitch = 1;
-
 /**
  * IfLoop Example if/loop
  * 
@@ -21,58 +14,70 @@ function IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSw
 {
     // demo if, else
     echo "Demo if, else";
+
     if ($varNumFirst > $varNumSecond) {
         echo "$varNumFirst lớn hơn $varNumSecond";
-    }else {
+    } else {
         echo "$varNumFirst nhỏ hơn $varNumSecond";
     }
+    
     //demo if, elseif
     echo "Demo if, elseif <br>";
+
     if ($varNumFirst > $varNumSecond) {
         echo "Số lớn hơn là $varNumFirst<br>";
     } elseif ($varNumSecond > $varNumFirst) {
         echo "Số lớn hơn là $varNumSecond<br>";
     }
+
     //demo ternary operator
     echo "Demo ternary operator <br/>";
+
     $retVal = ($varNumFirst > $varNumSecond) ? $varNumFirst : $varNumSecond;
+
     echo "Giữa $varNumFirst và $varNumSecond thì $retVal lớn hơn ! <br/>";
     //demo for
     echo "Demo for <br/>";
-    for ($i = 0; $i < $varNumArray; $i++) {
-        echo "$i <br/>";
+
+    for ($itemArray = 0; $itemArray < $varNumArray; $itemArray++) {
+        echo "$itemArray<br/>";
     }
+
     //demo foreach
     echo "Demo foreach";
-    foreach ($varListArray as $value) {
-        echo "$value <br/>";
+
+    foreach ($varListArray as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray <br/>";
     }
+
     //demo while
     echo "Demo while <br>";
+
     while ($varNumArray > 0) {
         echo "$varNumArray - ";
         $varNumArray--;
     }
+
 	//demo do...while
     echo "<br>Demo do...while <br>";
+
     do {
         echo "$varNumArray > ";
         $varNumArray++;
     } while ($varNumArray < 10);
+
     //demo switch
     echo "<br>Demo switch <br>";
+
     switch ($varSwitch) {
         case 0:
-        echo "Bút bi";
-        break;
+            echo "First case, with break !";
+            break;
         case 1:
-        echo "Bút chì";
-        break;
+            echo "Second case, with break !";
+            break;
         default:
-        echo "Trống";
-        break;
+            echo "Empty";
+            break;
     }
 }
-
-//called function ifloop
-IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSwitch);

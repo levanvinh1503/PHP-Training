@@ -5,14 +5,14 @@
  * @package classSession 
  * @access public
  */
-class classSession
+class ClassSession
 {
     /**
      * statusDB object
      *
      * @var string
      */
-    private $statusDB;
+    private $statusDb;
 
     /**
      * __construct
@@ -21,12 +21,12 @@ class classSession
     {
         // set our custom session functions.
         session_set_save_handler(
-            array($this, 'open'), 
-            array($this, 'close'), 
-            array($this, 'read'), 
-            array($this, 'write'), 
-            array($this, 'destroy'), 
-            array($this, 'gc')
+            array($this, 'ConnectDb'), 
+            array($this, 'DisconnectDb'), 
+            array($this, 'GetSession'), 
+            array($this, 'SetSession'), 
+            array($this, 'DestroySession'), 
+            array($this, 'GcSession')
         );
 
         //start session
@@ -34,65 +34,65 @@ class classSession
     }
 
     /**
-     * open Connect database
+     * ConnectDb Connect database
      * @return bool true
      */
-    public function open()
+    public function ConnectDb()
     {
-        $this->statusDB = new PDO('mysql:host=localhost;dbname=tableSesstion', 'root', '');
+        $this->statusDb = new PDO('mysql:host=localhost;dbname=tableSesstion', 'root', '');
         return true;
     }
 
     /**
-     * close Disconnect database
+     * DisconnectDb Disconnect database
      * 
      * @return bool true
      */
-    public function close()
+    public function DisconnectDb()
     {
-        $this->statusDB = null;
+        $this->statusDb = null;
         return true;
     }
 
     /**
-     * read Select session value in database
+     * GetSession Select session value in database
      * 
      * @param  string
      * 
      * @return string
      */
-    public function read($idSession)
+    public function GetSession($idSession)
     {
-        $sql = "SELECT IdValues FROM tableSesstion WHERE ID = ?";
-        $query = $this->statusDB->prepare($sql);
-        $query->bindValue(1, $idSession, PDO::PARAM_INT);
-        if ($query->execute()) {
-            $result = $query->fetch(PDO::FETCH_ASSOC);
-            $session_data = $result['IdValues'];
+        $sqlQuery = "SELECT IdValues FROM tableSesstion WHERE ID = ?";
+        $executeQuery = $this->statusDB->prepare($sqlQuery);
+        $executeQuery->bindValue(1, $idSession, PDO::PARAM_INT);
+        if ($executeQuery->execute()) {
+            $resultData = $executeQuery->fetch(PDO::FETCH_ASSOC);
+            $sessionData = $resultData['IdValues'];
             // Return the data
-            if (is_null($session_data)) {
-                $session_data = '';
+            if (is_null($sessionData)) {
+                $sessionData = '';
             }
         }
-        return $session_data;
+        return $sessionData;
     }
 
     /**
-     * write Insert session value in database
+     * SetSession Insert session value in database
      * 
      * @param  string $idSession
      * @param  string $valueSesstion
      * 
      * @return bool true or false
      */
-    public function write($idSession, $valueSesstion)
+    public function SetSession($idSession, $valueSesstion)
     {
-        if ($this->statusDB != null) {
-            $sql = "INSERT INTO tableSesstion VALUES (?, ?)";
-            $query = $this->statusDB->prepare($sql);
-            $query->bindValue(1, $idSession, PDO::PARAM_INT);
-            $query->bindValue(2, $valueSesstion, PDO::PARAM_INT);
-            if ($query->execute()) {
+        if ($this->statusDb != null) {
+            $sqlQuery = "INSERT INTO tableSesstion VALUES (?, ?)";
+            $executeQuery = $this->statusDb->prepare($sqlQuery);
+            $executeQuery->bindValue(1, $idSession, PDO::PARAM_INT);
+            $executeQuery->bindValue(2, $valueSesstion, PDO::PARAM_INT);
+            if ($executeQuery->execute()) {
                 return true;
             } else {
                 return false;
@@ -103,17 +103,18 @@ class classSession
     }
 
     /**
-     * destroy Delete session value in database
+     * DestroySession Delete session value in database
+     * 
      * @param  string $idSession
      * 
      * @return bool true or false
      */
-    public function destroy($idSession)
+    public function DestroySession($idSession)
     {
-        $sql = "DELETE FROM tableSesstion WHERE ID = ?";
-        $query = $this->statusDB->prepare($sql);
-        $query = $this->statusDB->bindValue(1, $idSession, PDO::PARAM_INT);
-        if ($query->execute()) {
+        $sqlQuery = "DELETE FROM tableSesstion WHERE ID = ?";
+        $executeQuery = $this->statusDb->prepare($sqlQuery);
+        $executeQuery = $this->statusDb->bindValue(1, $idSession, PDO::PARAM_INT);
+        if ($executeQuery->execute()) {
             return true;
         } else {
             return false;
@@ -121,11 +122,11 @@ class classSession
     }
 
     /**
-     * gc
+     * GcSession
      * 
      * @return bool true
      */
-    public function gc()
+    public function GcSession()
     {  
         return true;  
     }  

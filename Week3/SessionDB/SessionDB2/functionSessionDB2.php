@@ -12,10 +12,11 @@ if (isset($_POST["idSessionDB2"])) {
     function SelectValueDB($idSelect)
     {
         $idSec = $idSelect;
-        $createSession = new classSession();
-        $createSession->read($idSec);
-        if (!empty($createSession)) {
-            echo $createSession->read($idSec);
+        $createSession = new ClassSession();
+        $createSession->GetSession($idSec);
+        
+        if (!empty($createSession->GetSession($idSec))) {
+            echo $createSession->GetSession($idSec);
         } else {
             echo "Not Found !";
         }
@@ -23,6 +24,6 @@ if (isset($_POST["idSessionDB2"])) {
 
     //called function
     SelectValueDB($_POST["idSessionDB2"]);
-}else {
+} else {
     echo "Error !";
 }

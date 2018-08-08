@@ -12,6 +12,7 @@
     if(isset($_POST['upload'])){
         $fileName = $_FILES['uploadFileInput']['tmp_name'];
         $pathLocation = "UploadFile/".$_FILES['uploadFileInput']['name'];
+        
         if (is_uploaded_file($fileName)) {
             move_uploaded_file($fileName, $pathLocation);
             echo "Success";

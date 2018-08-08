@@ -6,7 +6,7 @@
  *
  * @return bool true or false
  */
-function String($myStr)
+function StringByte($myStr)
 {
     if (strlen($myStr) == mb_strlen($myStr)) {
         return false;
@@ -14,7 +14,3 @@ function String($myStr)
         return true;
     }
 }
-//single byte
-String("aaaaa");
-//multiple byte
-String("Lê văn Vịnh");

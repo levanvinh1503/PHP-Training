@@ -1,11 +1,5 @@
 <?php
-//define variable
-$arrFirst = [5,2,3,4,1,6];
-$arrSecond = [5,3,6,2,9,9];
-$arrThird = [43,2,52,8,39,4];
-
 /**
- *
  * Php array exercises
  * 
  * @param array $arrFirst
@@ -21,16 +15,16 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
     //check is array
     if (is_array($arrFirst) && is_array($arrSecond) && is_array($arrThird)) {
         /**
-         * ArrayIn Check 1 in the array
+         * ArrayIn Check the value 1 in the array
          * 
-         * @param array $arr
+         * @param array $arrayInput
          *
          * @return void Found or Not found
          */
-        function ArrayIn($arr)
+        function ArrayIn($arrayInput)
         {
             //Check the value for the array
-            $arrayIn = in_array(1, $arr);
+            $arrayIn = in_array(1, $arrayInput);
             if ($arrayIn) {
                 echo "Found <br>";
             } else {
@@ -60,26 +54,26 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
         /**
          * ArrayFilter Filter the value have sum the digits of a number divisible by 2
          * 
-         * @param array $arr
+         * @param array $arrayInput
          *
          * @return string
          */
-        function ArrayFilter($arr)
+        function ArrayFilter($arrayInput)
         {
-            $stringToArray = explode(",", $arr);
-            $arrayFilter = array_filter($stringToArray, function($items){
-                $stringItems = (string)$items;
+            $stringToArray = explode(",", $arrayInput);
+            $arrayFilter = array_filter($stringToArray, function($itemsArray){
+                $stringItems = (string)$itemsArray;
                 $countString = strlen($stringItems);
                 $sumItems = 0;
                 if ($countString > 1) {
-                    for ($i = 0; $i < $countString; $i++) {
-                        $sumItems += $stringItems[$i];
+                    for ($listItem = 0; $listItem < $countString; $listItem++) {
+                        $sumItems += $stringItems[$listItem];
                     }
                 } else {
                     $sumItems += $stringItems[0];
                 }
                 if ($sumItems % 2 == 0) {
-                    return $items;
+                    return $itemsArray;
                 }
             });
             $arrayImplode = implode(",", $arrayFilter);
@@ -125,11 +119,11 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
              *
              * @return void
              */
-            function FilterArrayWalk(&$item, $key, $arrReq)
+            function FilterArrayWalk(&$itemsArray, $keyArray, $arrReq)
             {
-                foreach ($arrReq as $keyReq=>$value) {
-                    if ($key == $keyReq && $item != $value) {
-                        echo $item.",";
+                foreach ($arrReq as $keyReq => $valueReq) {
+                    if ($keyArray == $keyReq && $itemsArray != $valueReq) {
+                        echo $itemsArray.",";
                     }
                 }
             }
@@ -140,28 +134,25 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
         //Called function
         ArrayIn($arrFirst);
         $arrMerge = ArrayMerge($arrSecond, $arrThird);
-        echo "$arrMerge <br>";
+        echo "$arrMerge<br>";
         $arrFilter = ArrayFilter($arrMerge);
-        echo "$arrFilter <br>";
+        echo "$arrFilter<br>";
         $arraySort = ArraySort($arrFirst, $arrMerge);
-        echo "$arraySort <br>";
+        echo "$arraySort<br>";
         ArrayDiffKey($arrFirst, $arrMerge);
     } else {
         echo "Invalid parameter ";
-        $numargs = func_num_args();
-        $arg_list = func_get_args();
+        $numberArguments = func_num_args();
+        $listArguments = func_get_args();
         //check location of arguments parameter is not array
-        if (!is_array($arg_list[0])) {
+        if (!is_array($listArguments[0])) {
             echo "1";
         }
-        for ($i = 1; $i < $numargs; $i++) {
-            if (!is_array($arg_list[$i])) {
-                $locationArg = $i + 1;
-                echo ",$locationArg";
+        for ($valueList = 1; $valueList < $numberArguments; $valueList++) {
+            if (!is_array($listArguments[$valueList])) {
+                $locationArg = $valueList + 1;
+                echo ", $locationArg";
             }
         }
     }
 }
-
-//called function
-ExArray($arrFirst, $arrSecond, $arrThird);

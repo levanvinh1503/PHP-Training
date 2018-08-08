@@ -13,13 +13,14 @@ if (isset($_POST["idSessionDB1"]) && isset($_POST["valueSession"])) {
     {
         $idSec = $idInsert;
         $valueSec = $valueInsert;
-        $createSession = new classSession();
-        $createSession->write($idSec, $valueSec);
+        $createSession = new ClassSession();
+        $createSession->SetSession($idSec, $valueSec);
+
         echo "Create Session Success !";
     }
     
     //called function
     InsertValueDB($_POST["idSessionDB1"], $_POST["valueSession"]);
-}else {
+} else {
     echo "Error !";
 }

@@ -1,83 +1,64 @@
 <?php
-//define variable
-$arr = ["Bút bi","Bút chì","Bút mực","Bút dạ quang"];
-$arrDiff = ["Bút","Bút chì","Bút mực","Bút dạ"];
-$arrNumber = ["2","2","3","4","5","6"];
-$arrNumberPlus = ["1","1","1","3","2","1"];
-$str = "HP,Dell,Asus,Lenovo";
-$arrField = array(
-    "ID" => "1",
-    "Name" => "LVV",
-    "Phone" => "0123456789"
-);
-$arrFieldDiff = array(
-    "ID" => "1",
-    "PassWord" => "123456708",
-    "Phone" => "012345678"
-);
-
 /**
- * 
  * ArrayUnShift Add value to array
  *
- * @param array $arr
+ * @param array $arrayInput
+ * @param string $valueCheck
  *
  * @return void List the key and the value of the array
  */
-function ArrayUnShift($arr)
+function ArrayUnShift($arrayInput, $valueCheck)
 {
-    //add value to array arr
-    array_unshift($arr, "Bút dạ quang");
-    //iterate array arr
-    foreach ($arr as $key=>$value) {
-        echo "$key => $value ";
+    //add value to array arrayInput
+    array_unshift($arrayInput, $valueCheck);
+    //iterate array $arrayInput
+    foreach ($arrayInput as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
 /**
- *
  * ArraySort Sort array
  *
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the value of the array
  */
-function ArraySort($arr)
+function ArraySort($arrayInput)
 {
-    //sort array arr
-    foreach ($arr as $key=>$value) {
-        echo "$key => $value ";
+    //sort array arrayInput
+    foreach ($arrayInput as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
 /**
  * ArrayDeleteDuplicated Delete duplicated value in array
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the value of the array
  */
-function ArrayDeleteDuplicated($arr)
+function ArrayDeleteDuplicated($arrayInput)
 {
-    //delete duplicated value in array arr
-    $deleteArray = array_unique($arr);
-    foreach ($deleteArray as $key=>$value) {
-        echo "$key => $value ";
+    //delete duplicated value in array $arrayInput 
+    $deleteArray = array_unique($arrayInput);
+    foreach ($deleteArray as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
 /**
- * 
  * ArrayImplode Convert array to string
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void
  */
-function ArrayImplode($arr)
+function ArrayImplode($arrayInput)
 {
     //convert array to string
-    $arrayToString = implode(" - ", $arr);
+    $arrayToString = implode(" - ", $arrayInput);
     echo $arrayToString;
 }
 
@@ -85,16 +66,16 @@ function ArrayImplode($arr)
  * 
  * ArrayExplode Convert string to array
  * 
- * @param string $str
+ * @param string $stringInput
  *
  * @return void List the key and the value of the array
  */
-function ArrayExplode($str)
+function ArrayExplode($stringInput)
 {
     //convert string to array
-    $stringToArray = explode(",", $str);
-    foreach ($stringToArray as $key=>$value) {
-        echo "$key => $value ";
+    $stringToArray = explode(",", $stringInput);
+    foreach ($stringToArray as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
@@ -102,16 +83,16 @@ function ArrayExplode($str)
  * 
  * ArrayKeys List of array fields
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the value of the array
  */
-function ArrayKeys($arr)
+function ArrayKeys($arrayInput)
 {
     //select field of array
-    $arrayKey = array_keys($arr);
-    foreach ($arrayKey as $key=>$value) {
-        echo "$key => $value ";
+    $arrayKey = array_keys($arrayInput);
+    foreach ($arrayKey as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
@@ -119,16 +100,16 @@ function ArrayKeys($arr)
  * 
  * ArrayValues List of array record
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the value of the array
  */
-function ArrayValues($arr)
+function ArrayValues($arrayInput)
 {
     //select record of array
-    $arrayInput = array_values($arr);
-    foreach ($arrayInput as $key=>$value) {
-        echo "$key => $value ";
+    $arrayInput = array_values($arrayInput);
+    foreach ($arrayInput as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
@@ -136,15 +117,15 @@ function ArrayValues($arr)
  * 
  * ArrayIn Check the value in the array
  * 
- * @param array $arr  
- * @param string $value
+ * @param array $arrayInput  
+ * @param string $valueCheck
  *
  * @return void True or False
  */
-function ArrayIn($arr, $value)
+function ArrayIn($arrayInput, $valueCheck)
 {
     //Check the value in the array
-    $arrayIn = in_array($value, $arr);
+    $arrayIn = in_array($valueCheck, $arrayInput);
     if ($arrayIn) {
         echo "True";
     } else {
@@ -156,15 +137,15 @@ function ArrayIn($arr, $value)
  * 
  * ArrayKeyExit Check the field name in the array
  * 
- * @param array $arr  
- * @param string $value
+ * @param array $arrayInput  
+ * @param string $valueCheck
  *
  * @return void True or False
  */
-function ArrayKeyExit($arr, $value)
+function ArrayKeyExit($arrayInput, $valueCheck)
 {
     //Check the field name for the array
-    $arrayKeyExit = array_key_exists($value, $arr);
+    $arrayKeyExit = array_key_exists($valueCheck, $arrayInput);
     if ($arrayKeyExit) {
         echo "True";
     } else {
@@ -176,16 +157,16 @@ function ArrayKeyExit($arr, $value)
  * 
  * ArrayShift Get and delete the first value of the array
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the value of the array
  */
-function ArrayShift($arr)
+function ArrayShift($arrayInput)
 {
     //Get and delete the first value of the array
-    array_shift($arr);
-    foreach ($arr as $key=>$value) {
-        echo "$key => $value ";
+    array_shift($arrayInput);
+    foreach ($arrayInput as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
@@ -193,16 +174,16 @@ function ArrayShift($arr)
  * 
  * ArrayPop Get and delete the last value of the array
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the value of the array
  */
-function ArrayPop($arr)
+function ArrayPop($arrayInput)
 {
     //Get and delete the last value of the array
-    array_pop($arr);
-    foreach ($arr as $key=>$value) {
-        echo "$key => $value ";
+    array_pop($arrayInput);
+    foreach ($arrayInput as $keyArray => $valueArray) {
+        echo "$keyArray => $valueArray";
     }
 }
 
@@ -322,17 +303,16 @@ function ArrayPlusArray($arrFirst, $arrSecond)
  * 
  * ArrayFilter Filter the values in the table
  * 
- * @param array $arr
+ * @param array $arrayInput
  *
  * @return void List the key and the values of the array
  */
-function ArrayFilter($arr)
+function ArrayFilter($arrayInput)
 {
     //Filter the values in the table
-    $arrayFilter = array_filter($arr, function($result){
-        return $result < 4 ;
+    $arrayFilter = array_filter($arrayInput, function($itemArray){
+        return $itemArray < 4;
     });
-
     print_r($arrayFilter);
 }
 
@@ -340,12 +320,12 @@ function ArrayFilter($arr)
  * 
  * ArrayMap Use array_map() - The values of array 1 plus the parameter value
  * 
- * @param array $arr
+ * @param array $arrayInput
  * @param string $valuePlus
  *
  * @return void List the key and the values of the array
  */
-function ArrayMap($arr, $valuePlus)
+function ArrayMap($arrayInput, $valuePlus)
 {
     /**
      * 
@@ -358,11 +338,10 @@ function ArrayMap($arr, $valuePlus)
      */
     function FilterArrayMap(&$itemArr, $valuePlusRequest)
     {
-        $result = $itemArr + $valuePlusRequest;
-        return "$result <br />";
+        $resultItem = $itemArr + $valuePlusRequest;
+        return "$resultItem <br />";
     }
-    //
-    $arrayMap = array_map("FilterArrayMap", $arr, $valuePlus);
+    $arrayMap = array_map("FilterArrayMap", $arrayInput, $valuePlus);
     print_r($arrayMap);
 }
 
@@ -370,12 +349,12 @@ function ArrayMap($arr, $valuePlus)
  * 
  * ArrayWalk Use array_walk() - The values of array 1 plus the parameter value 
  * 
- * @param array $arr
+ * @param array $arrayInput
  * @param string $valueInput
  *
  * @return void List the key and the values of the array
  */
-function ArrayWalk($arr, $valueInput)
+function ArrayWalk($arrayInput, $valueInput)
 {
     /**
      * 
@@ -387,14 +366,10 @@ function ArrayWalk($arr, $valueInput)
      *
      * @return void The value old and the value new of the array
      */
-    function FilterArrayWalk(&$item, $key, $valueRequest)
+    function FilterArrayWalk(&$itemArray, $keyArray, $valueRequest)
     {
-        $result = $item + $valueRequest;
-        echo "$item ~ $result <br>";
+        $resultItem = $itemArray + $valueRequest;
+        echo "$keyArray => $resultItem <br>";
     }
-    //
-    array_walk($arr, 'FilterArrayWalk', $valueInput);
+    array_walk($arrayInput, 'FilterArrayWalk', $valueInput);
 }
-
-//called functions
-ArrayWalk($arrNumber, "3");
