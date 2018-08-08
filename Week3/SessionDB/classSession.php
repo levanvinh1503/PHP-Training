@@ -128,6 +128,6 @@ class ClassSession
      */
     public function GcSession()
     {  
-        return true;  
+        return true;
     }  
 }
