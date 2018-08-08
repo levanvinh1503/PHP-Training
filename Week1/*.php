@@ -7,4 +7,4 @@ Hello word <br/>
 Hello all <br/>
 STRING;
 //define list three variable
-list($varFirstEx, $varSecondEx, $varThirdEx) = array('1','2','3');
+list($varFirstEx, $varSecondEx, $varThirdEx) = array('1', '2', '3');
