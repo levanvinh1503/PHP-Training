@@ -61,7 +61,7 @@ function ExArray($arrFirst, $arrSecond, $arrThird)
         function ArrayFilter($arrayInput)
         {
             $stringToArray = explode(",", $arrayInput);
-            $arrayFilter = array_filter($stringToArray, function($itemsArray){
+            $arrayFilter = array_filter($stringToArray, function ($itemsArray) {
                 $stringItems = (string)$itemsArray;
                 $countString = strlen($stringItems);
                 $sumItems = 0;

@@ -310,7 +310,7 @@ function ArrayPlusArray($arrFirst, $arrSecond)
 function ArrayFilter($arrayInput)
 {
     //Filter the values in the table
-    $arrayFilter = array_filter($arrayInput, function($itemArray){
+    $arrayFilter = array_filter($arrayInput, function ($itemArray) {
         return $itemArray < 4;
     });
     print_r($arrayFilter);
