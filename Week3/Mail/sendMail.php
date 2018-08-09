@@ -25,6 +25,8 @@
     <script>
         $(function() { 
             $("#formEmail").submit(function(event){
+                $(".result").html("");
+                $(".result").html("Please wait...!");
                 event.preventDefault();
                 $.ajax({
                     url: "functionSendEmail.php",
