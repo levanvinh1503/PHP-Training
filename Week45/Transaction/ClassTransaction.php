@@ -63,9 +63,10 @@ class ClassTransaction
      */
     public function SelectData($sqlQueryInput)
     {
+        mysqli_set_charset($this->connectionDb, 'UTF8');
         $executeQuery = mysqli_query($this->connectionDb, $sqlQueryInput);
+        $resultData = array();
         if ($executeQuery) {
-            $resultData = array();
             while($executeData = mysqli_fetch_assoc($executeQuery))
             {
                 $resultData[] = $executeData;
@@ -83,6 +84,7 @@ class ClassTransaction
      */
     public function InsertData($sqlQueryInput)
     {
+        mysqli_set_charset($this->connectionDb, 'UTF8');
         $executeQuery = mysqli_query($this->connectionDb, $sqlQueryInput);
         if ($executeQuery) {
             return true;
