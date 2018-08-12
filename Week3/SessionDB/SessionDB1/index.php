@@ -15,14 +15,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(function() { 
-            $("#FormSessionDB1").submit(function(event){
-                event.preventDefault();
+            $("#FormSessionDB1").submit(function (eventSubmit) {
+                eventSubmit.preventDefault();
                 $.ajax({
                     url: "functionSessionDB1.php",
                     data: $("#FormSessionDB1").serialize(),
                     type: "POST",
-                    success: function(data) {
-                        $(".result").html(data);
+                    success: function(dataResult) {
+                        $(".result").html(dataResult);
                     }
                 });
             });

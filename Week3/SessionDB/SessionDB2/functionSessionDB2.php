@@ -22,7 +22,6 @@ if (isset($_POST["idSessionDB2"])) {
         }
     }
 
-    //called function
     SelectValueDB($_POST["idSessionDB2"]);
 } else {
     echo "Error !";

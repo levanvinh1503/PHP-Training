@@ -28,17 +28,16 @@
                     $(".bar").width("0%");
                     $(".result").html();
                 },
-                uploadProgress: function(event) {
-                    var percentVal = event.loaded / event.total *100 + "%";
+                uploadProgress: function (eventUpLoad) {
+                    var percentVal = eventUpLoad.loaded / eventUpLoad.total *100 + "%";
                     console.log(percentVal);
                     $(".bar").width(percentVal);
                     $(".percent").html(percentVal);
                 },
-                complete: function(data) {
-                    console.log(data);
+                complete: function() {
                 },
-                success: function(result) {
-                    $(".result").append(result);
+                success: function (dataResult) {
+                    $(".result").append(dataResult);
                 }
             });
         });

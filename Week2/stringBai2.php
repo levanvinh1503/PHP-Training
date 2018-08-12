@@ -11,7 +11,7 @@
  */
 function FindString($stringInput, $subString)
 {
-    //check $string and $subString is string
+    /*check $string and $subString is string*/
     if (is_string($stringInput) && is_string($subString)) {
         if (strpos($stringInput, $subString)) {
             return true;

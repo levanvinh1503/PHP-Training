@@ -9,9 +9,9 @@
  */
 function ArrayUnShift($arrayInput, $valueCheck)
 {
-    //add value to array arrayInput
+    /*add value to array arrayInput*/
     array_unshift($arrayInput, $valueCheck);
-    //iterate array $arrayInput
+    /*iterate array $arrayInput*/
     foreach ($arrayInput as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
     }
@@ -26,7 +26,7 @@ function ArrayUnShift($arrayInput, $valueCheck)
  */
 function ArraySort($arrayInput)
 {
-    //sort array arrayInput
+    /*sort array arrayInput*/
     foreach ($arrayInput as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
     }
@@ -41,7 +41,7 @@ function ArraySort($arrayInput)
  */
 function ArrayDeleteDuplicated($arrayInput)
 {
-    //delete duplicated value in array $arrayInput 
+    /*delete duplicated value in array $arrayInput*/
     $deleteArray = array_unique($arrayInput);
     foreach ($deleteArray as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
@@ -57,7 +57,7 @@ function ArrayDeleteDuplicated($arrayInput)
  */
 function ArrayImplode($arrayInput)
 {
-    //convert array to string
+    /*convert array to string*/
     $arrayToString = implode(" - ", $arrayInput);
     echo $arrayToString;
 }
@@ -72,7 +72,7 @@ function ArrayImplode($arrayInput)
  */
 function ArrayExplode($stringInput)
 {
-    //convert string to array
+    /*convert string to array*/
     $stringToArray = explode(",", $stringInput);
     foreach ($stringToArray as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
@@ -89,7 +89,7 @@ function ArrayExplode($stringInput)
  */
 function ArrayKeys($arrayInput)
 {
-    //select field of array
+    /*select field of array*/
     $arrayKey = array_keys($arrayInput);
     foreach ($arrayKey as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
@@ -106,7 +106,7 @@ function ArrayKeys($arrayInput)
  */
 function ArrayValues($arrayInput)
 {
-    //select record of array
+    /*select record of array*/
     $arrayInput = array_values($arrayInput);
     foreach ($arrayInput as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
@@ -124,7 +124,7 @@ function ArrayValues($arrayInput)
  */
 function ArrayIn($arrayInput, $valueCheck)
 {
-    //Check the value in the array
+    /*Check the value in the array*/
     $arrayIn = in_array($valueCheck, $arrayInput);
     if ($arrayIn) {
         echo "True";
@@ -144,7 +144,7 @@ function ArrayIn($arrayInput, $valueCheck)
  */
 function ArrayKeyExit($arrayInput, $valueCheck)
 {
-    //Check the field name for the array
+    /*Check the field name for the array*/
     $arrayKeyExit = array_key_exists($valueCheck, $arrayInput);
     if ($arrayKeyExit) {
         echo "True";
@@ -163,7 +163,7 @@ function ArrayKeyExit($arrayInput, $valueCheck)
  */
 function ArrayShift($arrayInput)
 {
-    //Get and delete the first value of the array
+    /*Get and delete the first value of the array*/
     array_shift($arrayInput);
     foreach ($arrayInput as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
@@ -180,7 +180,7 @@ function ArrayShift($arrayInput)
  */
 function ArrayPop($arrayInput)
 {
-    //Get and delete the last value of the array
+    /*Get and delete the last value of the array*/
     array_pop($arrayInput);
     foreach ($arrayInput as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray";
@@ -198,7 +198,7 @@ function ArrayPop($arrayInput)
  */
 function ArrayDiff($arrFirst, $arrSecond)
 {
-    //Get different values of 2 arrays
+    /*Get different values of 2 arrays*/
     $arrayDiff = array_diff($arrFirst, $arrSecond);
     print_r($arrayDiff);
 }
@@ -214,7 +214,7 @@ function ArrayDiff($arrFirst, $arrSecond)
  */
 function ArrayDiffKey($arrFirst, $arrSecond)
 {
-    //Get different the first values of 2 arrays
+    /*Get different the first values of 2 arrays*/
     $arrayDiffKey = array_diff_key($arrFirst, $arrSecond);
     print_r($arrayDiffKey);
 }
@@ -230,7 +230,7 @@ function ArrayDiffKey($arrFirst, $arrSecond)
  */
 function ArrayIntersect($arrFirst, $arrSecond)
 {
-    //Get values of two arrays including field values and records
+    /*Get values of two arrays including field values and records*/
     $arrayIntersect = array_intersect($arrFirst, $arrSecond);
     print_r($arrayIntersect);
 }
@@ -246,7 +246,7 @@ function ArrayIntersect($arrFirst, $arrSecond)
  */
 function ArrayIntersectKey($arrFirst, $arrSecond)
 {
-    //Get the first values of two arrays including field values and records
+    /*Get the first values of two arrays including field values and records*/
     $arrayIntersectKey = array_intersect_key($arrFirst, $arrSecond);
     print_r($arrayIntersectKey);
 }
@@ -262,7 +262,7 @@ function ArrayIntersectKey($arrFirst, $arrSecond)
  */
 function ArrayMerge($arrFirst, $arrSecond)
 {
-    //Add two array, the same field will receive the last record of that field
+    /*Add two array, the same field will receive the last record of that field*/
     $arrayMerge = array_merge($arrFirst, $arrSecond);
     print_r($arrayMerge);
 }
@@ -278,7 +278,7 @@ function ArrayMerge($arrFirst, $arrSecond)
  */
 function ArrayMergeRecursive($arrFirst, $arrSecond)
 {
-    //Add two arrays, the same field will be an array of records of 2 tables
+    /*Add two arrays, the same field will be an array of records of 2 tables*/
     $arrayMergeRecursive = array_merge_recursive($arrFirst, $arrSecond);
     print_r($arrayMergeRecursive);
 }
@@ -294,7 +294,7 @@ function ArrayMergeRecursive($arrFirst, $arrSecond)
  */
 function ArrayPlusArray($arrFirst, $arrSecond)
 {
-    //Add two records, the same field will receive the first record of that field
+    /*Add two records, the same field will receive the first record of that field*/
     $arrayPlusArray = $arrFirst + $arrSecond;
     print_r($arrayPlusArray);
 }
@@ -309,7 +309,7 @@ function ArrayPlusArray($arrFirst, $arrSecond)
  */
 function ArrayFilter($arrayInput)
 {
-    //Filter the values in the table
+    /*Filter the values in the table*/
     $arrayFilter = array_filter($arrayInput, function ($itemArray) {
         return $itemArray < 4;
     });

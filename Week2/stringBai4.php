@@ -36,7 +36,6 @@ function TrimString($myStr)
             echo ltrim($strRevString, "m");
         }
 
-        //called function
         SubStringWithLTrim($myStr);
     } else {
         echo "Invalid parameter";

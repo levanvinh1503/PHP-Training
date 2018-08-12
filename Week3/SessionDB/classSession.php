@@ -33,6 +33,7 @@ class ClassSession
 
     /**
      * ConnectDb Connect database
+     * 
      * @return bool true
      */
     public function ConnectDb()

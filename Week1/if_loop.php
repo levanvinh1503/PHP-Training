@@ -12,7 +12,7 @@
  */
 function IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSwitch)
 {
-    // demo if, else
+    /*demo if, else*/
     echo "Demo if, else";
 
     if ($varNumFirst > $varNumSecond) {
@@ -21,7 +21,7 @@ function IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSw
         echo "$varNumFirst nhỏ hơn $varNumSecond";
     }
     
-    //demo if, elseif
+    /*demo if, elseif*/
     echo "Demo if, elseif <br>";
 
     if ($varNumFirst > $varNumSecond) {
@@ -30,27 +30,27 @@ function IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSw
         echo "Số lớn hơn là $varNumSecond<br>";
     }
 
-    //demo ternary operator
+    /*demo ternary operator*/
     echo "Demo ternary operator <br/>";
 
     $retVal = ($varNumFirst > $varNumSecond) ? $varNumFirst : $varNumSecond;
 
     echo "Giữa $varNumFirst và $varNumSecond thì $retVal lớn hơn ! <br/>";
-    //demo for
+    /*demo for*/
     echo "Demo for <br/>";
 
     for ($itemArray = 0; $itemArray < $varNumArray; $itemArray++) {
         echo "$itemArray<br/>";
     }
 
-    //demo foreach
+    /*demo foreach*/
     echo "Demo foreach";
 
     foreach ($varListArray as $keyArray => $valueArray) {
         echo "$keyArray => $valueArray <br/>";
     }
 
-    //demo while
+    /*demo while*/
     echo "Demo while <br>";
 
     while ($varNumArray > 0) {
@@ -58,7 +58,7 @@ function IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSw
         $varNumArray--;
     }
 
-	//demo do...while
+	/*demo do...while*/
     echo "<br>Demo do...while <br>";
 
     do {
@@ -66,7 +66,7 @@ function IfLoop($varNumFirst, $varNumSecond, $varNumArray, $varListArray, $varSw
         $varNumArray++;
     } while ($varNumArray < 10);
 
-    //demo switch
+    /*demo switch*/
     echo "<br>Demo switch <br>";
 
     switch ($varSwitch) {

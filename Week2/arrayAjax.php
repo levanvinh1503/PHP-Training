@@ -13,15 +13,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(function() { 
-            $("#formArray").submit(function(event){
-                event.preventDefault();
+            $("#formArray").submit(function (eventSubmit) {
+                eventSubmit.preventDefault();
                 $.ajax({
                     url: "functionArrayAjax.php",
                     data: $("#formArray").serialize(),
                     type: "POST",
-                    success: function(data) {
-                        console.log(data);
-                        $(".result").append(data);
+                    success: function(dataResult) {
+                        console.log(dataResult);
+                        $(".result").append(dataResult);
                     }
                 });
             });

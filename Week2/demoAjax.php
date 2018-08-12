@@ -8,10 +8,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $('#clickAjax').click(function(event) {
-                event.preventDefault();
+            $('#clickAjax').click(function(eventSubmit) {
+                eventSubmit.preventDefault();
                 $.ajax({
-                    success: function(data) {
+                    success: function(dataResult) {
                         alert("OK");
                     }
                 });

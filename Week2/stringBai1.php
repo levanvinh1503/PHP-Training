@@ -1,4 +1,4 @@
 <?php
-//define variable
+/*define variable*/
 $stringSingleQuote = 'Money $__$ money <br>';
 $stringDoubleQuote = "Money \$__$ money";

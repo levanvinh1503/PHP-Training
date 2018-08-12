@@ -24,16 +24,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(function() { 
-            $("#formEmail").submit(function(event){
+            $("#formEmail").submit(function (eventSubmit) {
                 $(".result").html("");
                 $(".result").html("Please wait...!");
-                event.preventDefault();
+                eventSubmit.preventDefault();
                 $.ajax({
                     url: "functionSendEmail.php",
                     data: $("#formEmail").serialize(),
                     type: "POST",
-                    success: function(data) {
-                        $(".result").html(data);
+                    success: function(dataResult) {
+                        $(".result").html(dataResult);
                     }
                 });
             });

@@ -9,7 +9,7 @@
  */
 function Operator($valueFirst, $valueSecond)
 {
-    //Operator ==
+    /*Operator ==*/
     echo "Operator ==:<br/>";
 
     if ($valueFirst == $valueSecond) {
@@ -18,7 +18,7 @@ function Operator($valueFirst, $valueSecond)
         echo "False";
     }
 
-    //Operator ===
+    /*Operator ===*/
     echo "<br/>Operator ===:<br/>";
 
     if ($valueFirst === $valueSecond) {

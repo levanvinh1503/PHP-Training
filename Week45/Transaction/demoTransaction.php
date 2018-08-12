@@ -13,7 +13,6 @@ function DemoTransaction()
     $usernamDb = "root";
     $passwordDb = "";
     $nameDb = "db_demoex";
-
     /*Initialize the object that is connected to the database*/
     $objectTransaction = new ClassTransaction($hostName, $usernamDb, $passwordDb, $nameDb);
     /*The database connection method is called*/

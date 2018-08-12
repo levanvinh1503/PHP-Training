@@ -9,7 +9,7 @@ if (isset($_POST["arrayNumber"])) {
      */
     function SumAndMultiValueArray($stringInput)
     {
-        //convert string to array
+        /*convert string to array*/
         $arrayString = explode(",", $stringInput);
         $arrayResult = array();
         $sumValueArray = 0;
@@ -18,18 +18,17 @@ if (isset($_POST["arrayNumber"])) {
             $sumValueArray += $valueArray;
             $multiValueArray *= $valueArray;
         }
-        //Add value $multiValueArray to array
+        /*Add value $multiValueArray to array*/
         array_unshift($arrayResult, $multiValueArray);
-        //Add value $sumValueArray to array
+        /*Add value $sumValueArray to array*/
         array_unshift($arrayResult, $sumValueArray);
-        //Encode array
+        /*Encode array*/
         $encodeArray = json_encode($arrayResult);
-        //Decode array
+        /*Decode array*/
         $decodeArray = json_decode($encodeArray);
         print_r($decodeArray);
     }
 
-    //called function
     SumAndMultiValueArray($_POST["arrayNumber"]);
 } else {
     echo "Error";
