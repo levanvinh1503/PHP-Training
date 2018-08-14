@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function getHome()
+    public function GetHome()
     {
         return view('index');
     }
 
-    public function getLogin()
+    public function GetLogin()
     {
         return view('pages.login');
     }
 
-    public function getAdmin()
+    public function GetAdmin()
     {
         return view('admin.index');
     }

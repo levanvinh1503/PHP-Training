@@ -16,9 +16,10 @@ class Posts extends Migration
         //
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('post_id');
-            $table->integer('categories_id_fkey')->unsigned();
+            $table->integer('category_id_fkey')->unsigned();
             $table->string('post_title');
             $table->string('post_description');
+            $table->string('post_slug');
             $table->string('post_content');
             $table->string('post_image');
             $table->integer('post_view');

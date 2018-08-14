@@ -16,8 +16,8 @@ class Posts extends Model
     /**
      * Get the categories that owns the post.
      */
-    public function CategoriesPost()
+    public function CategoryPost()
     {
-        return $this->belongsTo('App\Categories', 'categories_id_fkey', 'categories_id');
+        return $this->belongsTo('App\Categories', 'category_id_fkey', 'category_id');
     }
 }

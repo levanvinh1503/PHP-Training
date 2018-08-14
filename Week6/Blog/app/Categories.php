@@ -11,13 +11,13 @@ class Categories extends Model
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'category';
 
     /**
      * Get the post that owns the categories.
      */
-    public function CategoriesPost()
+    public function CategoryPost()
     {
-    	return $this->hasMany('App\Posts', 'categories_id_fkey', 'categories_id');
+    	return $this->hasMany('App\Posts', 'category_id_fkey', 'category_id');
     }
 }

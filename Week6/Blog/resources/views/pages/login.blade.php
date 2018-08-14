@@ -21,7 +21,7 @@
                 <div class="form-signin">
                     <form id="form-login" method="POST" role="form">
                         <h2 class="title-login">Đăng nhập</h2>
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="">Email</label>
                             <input type="text" class="form-control" name="email-login">

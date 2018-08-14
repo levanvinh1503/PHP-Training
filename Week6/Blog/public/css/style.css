@@ -302,12 +302,6 @@ table {
     border:1px solid #e7e7e7;
     padding: 10px 15px;
 }
-.float-left {
-    float: left;
-}
-.float-right {
-    float: right;
-}
 .sidebar {
     position: fixed;
     top: 0px;
@@ -343,4 +337,44 @@ table {
     display: inline-block;
     border-radius: 9999px;
     margin-right: 5px;
+}
+.menu-child {
+    padding-left: 10px;
+}
+.list-category-admin {
+    margin-top: 20px;
+}
+.list-addcategory-admin {
+    width: 500px;
+}
+.title-dashborad {
+    font-size: 30px;
+    color: #663399;
+    padding: 20px 0;
+}
+div.dataTables_wrapper div.dataTables_filter input, div.dataTables_wrapper div.dataTables_length select {
+    padding: 5px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+.paginate_button {
+	border: 1px solid #c0c0c0;
+	cursor: pointer;
+	padding: 5px 10px;
+	margin: 2px;
+	color: #000;
+}
+.paginate_button.current {
+	background: green;
+	border: 1px solid green;
+	color: #fff;
+}
+.paginate_button:hover {
+	text-decoration: none;
+}
+#table-list-category_info {
+	display: none;
+}
+#table-list-category_paginate {
+	margin-top: 20px;
 }

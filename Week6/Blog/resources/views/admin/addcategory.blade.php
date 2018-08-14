@@ -1,0 +1,40 @@
+@extends('admin.index')
+@section('breadcrumb')
+Thêm chuyên mục
+@endsection
+@section('content')
+<div class="list-addcategory-admin">
+    <h2 class="title-dashborad">Thêm chuyên mục</h2>
+    <form id="form-add-category" action="{{ route('addcategory') }}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @if(Session::has('thanhcong'))
+        <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
+        @endif
+        <div class="form-group">
+            <label>Tên chuyên mục</label>
+            <input class="form-control" type="text" id="category-name" name="category-name" placeholder="Nhập tên chuyên mục">
+            @if($errors->has('category-name'))
+            <p style="color: red">{{ $errors->first('category-name') }}</p>
+            @endif
+        </div>
+        <div class="form-group">
+            <label>Đường dẫn</label>
+            <input class="form-control" readonly="readonly" type="text" id="category-slug" name="category-slug" placeholder="Đường dẫn chuyên mục (tạo tự động)">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="add-category" value="Thêm">
+        </div>
+    </form>
+</div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#category-name').keyup(function () {
+            var titleInput = $(this).val();
+            var slugResult = ChangeToSlug(titleInput);
+            $('#category-slug').val(slugResult);
+        });
+    });
+</script>
+@endsection
