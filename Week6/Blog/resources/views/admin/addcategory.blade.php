@@ -9,19 +9,23 @@ Thêm chuyên mục
     <!-- Form add Category -->
     <form id="form-add-category" action="{{ route('addcategory') }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @if(count($errors)>0)
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $err)
+            {{ $err }}<br>
+            @endforeach
+        </div>
+        @endif
         @if(Session::has('thanhcong'))
         <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
         @endif
         <div class="form-group">
             <label>Tên chuyên mục</label>
             <input class="form-control" type="text" id="category-name" name="category-name" placeholder="Nhập tên chuyên mục">
-            @if($errors->has('category-name'))
-            <p style="color: red">{{ $errors->first('category-name') }}</p>
-            @endif
         </div>
         <div class="form-group">
             <label>Đường dẫn</label>
-            <input class="form-control" readonly="readonly" type="text" id="category-slug" name="category-slug" placeholder="Đường dẫn chuyên mục (tạo tự động)">
+            <input class="form-control" readonly="readonly" type="text" id="category-slug" name="category-slug" placeholder="Đường dẫn chuyên mục (tạo tự động)"> 
         </div>
         <div class="form-group">
             <input class="btn btn-primary" type="submit" name="add-category" value="Thêm">

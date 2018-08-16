@@ -44,11 +44,13 @@ class CategoryController extends Controller
     {
         $this->validate($requestData, 
             [
-                'category-name' => 'required|max:191',
+                'category_name' => 'required|max:191',
+                'category_slug' => 'unique:category'
             ],
             [
-                'category-name.required' => 'Vui lòng nhập vào trường này',
-                'category-name.max' => 'Tối đa 191 kí tự',
+                'category_name.required' => 'Không bỏ trống tên chuyên mục',
+                'category_name.max' => 'Tên chuyên mục tối đa 191 kí tự',
+                'category_slug.unique' => 'Url chuyên mục đã tồn tại, vui lòng nhập lại tên!',
             ]);
         $newCategory = new Categories();
         $newCategory->category_name = $requestData->input('category-name');
