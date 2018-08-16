@@ -1,10 +1,12 @@
-@extends('admin.index')
+@extends('admin.layout')
 @section('breadcrumb')
 Thêm chuyên mục
 @endsection
 @section('content')
+<!-- Block Block add Category -->
 <div class="list-addcategory-admin">
     <h2 class="title-dashborad">Thêm chuyên mục</h2>
+    <!-- Form add Category -->
     <form id="form-add-category" action="{{ route('addcategory') }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @if(Session::has('thanhcong'))
@@ -25,7 +27,9 @@ Thêm chuyên mục
             <input class="btn btn-primary" type="submit" name="add-category" value="Thêm">
         </div>
     </form>
+    <!-- End Form add Category -->
 </div>
+<!-- End Block add Category -->
 @endsection
 @section('script')
 <script type="text/javascript">

@@ -1,10 +1,10 @@
 $(document).ready(function ($) {
-    try {
-           /*Flexslider*/
-        $('.slider-home-post').flexslider({
-            animation: "fade",
-        });
-    } catch(errorMessage) {
+	try {
+		/*Flexslider*/
+		$('.slider-home-post').flexslider({
+			animation: "fade",
+		});
+	} catch(errorMessage) {
 
-    }
+	}
 });

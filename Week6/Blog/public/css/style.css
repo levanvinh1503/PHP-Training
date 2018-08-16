@@ -83,7 +83,7 @@ table {
     text-decoration: none;
 }
 .bg-logo {
-    background: url('../image/sprite-genk_v11.png') no-repeat;
+    background: url('../images/sprite-genk_v11.png') no-repeat;
     width: 140px;
     height: 20px;
     position: absolute;
@@ -121,10 +121,10 @@ table {
     -webkit-transition: all .3s ease;
 }
 .flex-direction-nav .flex-next { 
-    background: rgba(0,0,0, 0.5) url(../image/slider-next.png) no-repeat center; 
+    background: rgba(0,0,0, 0.5) url(../images/slider-next.png) no-repeat center; 
 }
 .flex-direction-nav .flex-prev { 
-    background: rgba(0,0,0, 0.5) url(../image/slider-prev.png) no-repeat center; 
+    background: rgba(0,0,0, 0.5) url(../images/slider-prev.png) no-repeat center; 
 }
 .flex-direction-nav .flex-next:hover { 
     opacity: 0.8; 
@@ -143,7 +143,6 @@ table {
 }
 .slider-home-post {
     position: relative;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 .slider-home-post img {
@@ -157,7 +156,7 @@ table {
     font-size: 13px;
     padding: 18px 20px;
     color: #fff;
-    height: 80px;
+    height: 100px;
     width: 100%;
     overflow: hidden;
     background: rgba(0,0,0, 0.5);
@@ -183,7 +182,14 @@ table {
     color: #fff;
     margin: 0px;
     padding: 9px 14px 8px 42px;
-    background: #fc7100 url(../image/cat-icon.png) no-repeat 5px center;
+    background: #2e2e2e url(../images/cat-icon.png) no-repeat 5px center;
+}
+.title-categorie a {
+    color: #fff;
+}
+.title-categorie a:hover {
+    color: #0043ff;
+    text-decoration: none;
 }
 .img-post {
     height: 220px;
@@ -225,13 +231,68 @@ table {
     color: #999;
 }
 .post-meta .view {
-    background: url(../image/bullet-style.png) no-repeat left center;
+    background: url(../images/bullet-style.png) no-repeat left center;
     padding: 5px 0 5px 20px;
     margin-right: 10px;
 }
 .post-meta .date, .date {
-    background: url(../image/date-icon.png) no-repeat left center;
+    background: url(../images/date-icon.png) no-repeat left center;
     padding: 5px 0 5px 20px;
+}
+.see-more {
+    text-align: center;
+}
+.see-more a:hover {
+    text-decoration: none;
+    color: red;
+}
+.content-left, .content-right {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.box-post-view {
+    border: 1px solid #c0c0c0;
+    padding: 5px;
+    border-top: none;
+}
+.box-post-view .list-post h4 {
+    font-size: 12px;
+}
+.item-post-view {
+    padding: 5px 0;
+}
+/*CSS Post*/
+.post-title {
+    font-size: 34px;
+    line-height: 38px;
+    color: #222;
+}
+.post-description {
+    margin-top: 12px;
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 17px;
+    line-height: 22px;
+}
+.post-content {
+    line-height: 22px;
+    text-align: justify;
+}
+.post-content img {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+}
+.post-content p {
+    margin-bottom: 10px;
+}
+.post-content strong {
+    font-weight: bold;
+}
+.post-content h1, .post-content h2, .post-content h3, .post-content h4 {
+    font-weight: bold;
+    margin: 20px 0;
 }
 /*CSS Footer*/
 #footer {
@@ -248,7 +309,7 @@ table {
 }
 .list-items-footer .items {
     padding-left: 20px;
-    background: url(../image/arrow-style.png) no-repeat left center;
+    background: url(../images/arrow-style.png) no-repeat left center;
     margin-bottom: 5px;
 }
 .list-items-footer .items a {
@@ -313,6 +374,7 @@ table {
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    background: #fff;
     border-right: 1px solid #e7e7e7;
 }
 .profile-sidebar {
@@ -377,4 +439,8 @@ div.dataTables_wrapper div.dataTables_filter input, div.dataTables_wrapper div.d
 }
 #table-list-category_paginate {
 	margin-top: 20px;
+}
+/*CSS Ckeditor*/
+#cke_1_contents {
+    height: 500px !important;
 }

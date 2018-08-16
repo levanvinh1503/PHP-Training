@@ -11,29 +11,40 @@
 |
 */
 /*Route Page*/
-Route::get('/', [
-    'as' => 'home',
-    'uses' => 'PageController@GetHome'
-]);
-Route::get('login', [
-    'as' => 'login',
-    'uses' => 'PageController@GetLogin'
-]);
+Route::get('/', 'PageController@GetHome')->name('home');
+Route::get('login', 'PageController@GetLogin')->name('login');
+Route::post('login', 'PageController@PostLogin')->name('login');
+Route::get('category/{slugCategory}', 'PageController@GetCategory')->name('homecategory');
+Route::get('post/{slugPost}', 'PageController@GetPost')->name('homepost');
 /*Route Admin*/
-Route::group(['prefix' => 'admin',/* 'middleware' => 'auth'*/], function () {
-	Route::get('/', 'PageController@GetAdmin')->name('indexadmin');
-	/* Group for category */
-	Route::prefix('category')->group(function () {
-        Route::get('/', 'AdminController@GetListCategory')->name('listcategory');
-        Route::get('add', 'AdminController@GetAddCategory')->name('addcategory');
-        Route::post('add', 'AdminController@PostAddCategory')->name('addcategory');
-        Route::get('data', 'AdminController@DataTables')->name('datacategory');
-        Route::post('update', 'AdminController@PostEditCategory')->name('editcategory');
-        Route::delete('delete', 'AdminController@PostDeleteCategory')->name('deletecategory');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', 'AdminController@GetAdmin')->name('indexadmin');
+    Route::get('logout', 'AdminController@GetLogout')->name('logout');
+    /* Group for category */
+    Route::prefix('category')->group(function () {
+        Route::get('/', 'CategoryController@GetListCategory')->name('listcategory');
+        Route::post('updates', 'CategoryController@PostEditCategory')->name('editcategory');
+        Route::get('add', 'CategoryController@GetAddCategory')->name('addcategory');
+        Route::post('add', 'CategoryController@PostAddCategory')->name('addcategory');
+        Route::get('data', 'CategoryController@DataTables')->name('datacategory');
+        Route::post('delete', 'CategoryController@PostDeleteCategory')->name('deletecategory');
     });
+    /* Group for post */
+    Route::prefix('post')->group(function () {
+        Route::get('/', 'PostController@GetListPost')->name('listpost');
+        Route::get('updates/{idPost}', 'PostController@GetEditPost')->name('editpost');
+        Route::post('updates/{idPost}', 'PostController@PostEditPost')->name('editpost');
+        Route::get('add', 'PostController@GetAddPost')->name('addpost');
+        Route::post('add', 'PostController@PostAddPost')->name('addpost');
+        Route::get('delete/{id}', 'PostController@GetDeletePost')->name('deletepost');
+    });
+    /**/
+    Route::group(['prefix' => 'laravel-filemanager'], function () {
+       \UniSharp\LaravelFilemanager\Lfm::routes();
+   });
 });
 /*Route Error*/
 Route::get('/error', function () {
-   abort(404);
+ abort(404);
 });
 

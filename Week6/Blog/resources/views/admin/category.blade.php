@@ -1,10 +1,12 @@
-@extends('admin.index')
+@extends('admin.layout')
 @section('breadcrumb')
-    Danh sách chuyên mục
+Danh sách chuyên mục
 @endsection
 @section('content')
+<!-- BLock list category -->
 <div class="list-category-admin">
     <h2 class="title-dashborad">Danh sách chuyên mục</h2>
+    <!-- DataTable -->
     <table class="table table-striped table-bordered table-hover" id="table-list-category">
         <thead>
             <tr>
@@ -16,7 +18,9 @@
             </tr>
         </thead>
     </table>
+    <!-- End DataTable -->
 </div>
+<!-- End block list category -->
 <!-- Modal Update-->
 <div class="modal fade" id="show-update-category" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog" role="document">
@@ -46,7 +50,7 @@
             </form>
         </div>
     </div>
-  </div>
+</div>
 </div>
 <!-- Modal Delete-->
 <div class="modal fade" id="show-delete-category" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -61,14 +65,14 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="category-id" id="category-id">
                 <p>Bạn có chắc muốn xóa chuyên mục <strong id="category-name"></strong> cũng như các bài viết trong đó?</p>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="submit" class="btn btn-danger" id="category-delete">Xóa</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-danger" id="category-delete">Xóa</button>
+                </div>
             </form> 
         </div>
     </div>
-  </div>
+</div>
 </div>
 @endsection
 @section('script')
@@ -80,11 +84,11 @@
             serverSide: true,
             ajax: '{{ route('datacategory') }}',
             columns: [
-                { data: 'category_id', name: 'category_id' },
-                { data: 'category_name', name: 'category_name' },
-                { data: 'category_slug', name: 'category_slug' },
-                { data: 'post_count', name: 'post_count' },
-                { data: 'action', name: 'action' },
+            { data: 'id', name: 'id' },
+            { data: 'category_name', name: 'category_name' },
+            { data: 'category_slug', name: 'category_slug' },
+            { data: 'post_count', name: 'post_count' },
+            { data: 'action', name: 'action' },
             ]
         });
         /* Bind data record to form update modal*/
@@ -99,29 +103,26 @@
             modalUpdate.find('.modal-body #category-name').val(categoryName);
             modalUpdate.find('.modal-body #category-slug').val(categorySlug);
         });
+        
         /* Send request update Ajax*/
-        $("#form-update-category").on("submit", function (eventSubmit) {
+        $("#save-category").on("click", function (eventSubmit) {
             eventSubmit.preventDefault();
             $.ajax({
                 url: '{{ route('editcategory') }}',
                 type: 'POST',
-                data: $(this).serialize(),
-            })
-            .done(function (dataResult) {
-                if(dataResult === 'success'){
-                    dataTable.ajax.reload();
-                    $('#show-update-category').modal('hide');
-                    alert("Cập Nhật Thành Công");
-                } else {
-                    dataTable.ajax.reload();
-                    $('#show-update-category').modal('hide');
-                    alert("Cập nhật thất bại !");
+                data: $('#form-update-category').serialize(),
+                success: function (dataResult) {
+                    console.log(dataResult);
+                    if(dataResult == 'success'){
+                        dataTable.ajax.reload();
+                        $('#show-update-category').modal('hide');
+                        alert("Cập Nhật Thành Công");
+                    } else {
+                        dataTable.ajax.reload();
+                        $('#show-update-category').modal('hide');
+                        alert("Cập nhật thất bại !");
+                    }
                 }
-            })
-            .fail(function () {
-                dataTable.ajax.reload();
-                $('#show-update-category').modal('hide');
-                alert("Có Lỗi");
             })
         });
         /* Bind category name to modal*/
@@ -139,24 +140,19 @@
             eventSubmit.preventDefault();
             $.ajax({
                 url: '{{ route('deletecategory') }}',
-                type: 'delete',
+                type: 'POST',
                 data: $(this).serialize(),
-            })
-            .done(function (dataResult) {
-                if(dataResult === 'success') {
-                    dataTable.ajax.reload();
-                    $('#show-delete-category').modal('hide');
-                    alert("Xóa Thành Công");
-                } else {
-                    dataTable.ajax.reload();
-                    $('#show-delete-category').modal('hide');
-                    alert("Có Lỗi");
+                success: function (dataResult) {
+                    if(dataResult == 'success') {
+                        dataTable.ajax.reload();
+                        $('#show-delete-category').modal('hide');
+                        alert("Xóa Thành Công");
+                    } else {
+                        dataTable.ajax.reload();
+                        $('#show-delete-category').modal('hide');
+                        alert("Có Lỗi");
+                    }
                 }
-            })
-            .fail(function () {
-                dataTable.ajax.reload();
-                $('#show-delete-category').modal('hide');
-                alert("Có Lỗi");
             })
         });
     });

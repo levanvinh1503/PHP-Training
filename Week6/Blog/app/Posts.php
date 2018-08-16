@@ -18,6 +18,6 @@ class Posts extends Model
      */
     public function CategoryPost()
     {
-        return $this->belongsTo('App\Categories', 'category_id_fkey', 'category_id');
+        return $this->belongsTo('App\Categories', 'category_id_fkey', 'id');
     }
 }

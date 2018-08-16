@@ -18,6 +18,6 @@ class Categories extends Model
      */
     public function CategoryPost()
     {
-    	return $this->hasMany('App\Posts', 'category_id_fkey', 'category_id');
+    	return $this->hasMany('App\Posts', 'category_id_fkey', 'id');
     }
 }
