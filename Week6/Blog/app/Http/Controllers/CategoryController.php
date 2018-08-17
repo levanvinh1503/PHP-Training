@@ -144,13 +144,13 @@ class CategoryController extends Controller
     public function PostDeleteCategory(Request $requestData)
     {
         if ($requestData->ajax()) {
-            $postModel = Posts::where('category_id_fkey', $requestData->input('category-id'));
             $categoryModel = Categories::where('id', $requestData->input('category-id'));
-            if ($postModel->delete() && $categoryModel->delete()) {
-                return 'success';
-            } else {
-                return response()->json(['error'=>'Có lỗi, vui lòng thử lại']);
-            }
+            $postModel = Posts::where('category_id_fkey', $requestData->input('category-id'));
+            if ($postModel) {
+                $postModel->delete();
+            } 
+            $categoryModel->delete();
+            return 'success';
         } else {
             return response()->json(['error'=>'Có lỗi, vui lòng thử lại']);
         }
