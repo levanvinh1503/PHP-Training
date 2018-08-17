@@ -8,13 +8,10 @@ use App\Posts;
 use Datatables;
 use Auth;
 
-/**
- * AdminController
- */
 class AdminController extends Controller
 {
     /**
-     * Admin interface 
+     * Display admin interface 
      * 
      * @return Response
      */

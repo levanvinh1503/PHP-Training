@@ -45,7 +45,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit-login" class="btn btn-primary" value="Login">
+                        <input type="submit" name="submit-login" class="btn btn-primary" value="Đăng nhập">
                     </div> 
                 </form>
                 <!-- End Form login -->

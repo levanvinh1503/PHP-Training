@@ -23,57 +23,59 @@ Danh sách chuyên mục
 <!-- End block list category -->
 <!-- Modal Update-->
 <div class="modal fade" id="show-update-category" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            	<span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">Chỉnh Sửa Chuyên Mục</h4>
-        </div>
-        <div class="modal-body">
-            <form id="form-update-category" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group">
-                    <label for="recipient-name" class="control-label">Tên chuyên mục</label>
-                    <input type="hidden" name="category-id" id="category-id">
-                    <input type="text" class="form-control" id="category-name" name="category-name">
-                </div>
-                <div class="form-group">
-                    <label for="recipient-name" class="control-label">Đường dẫn</label>
-                    <input type="text" class="form-control" id="category-slug" name="category-slug">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-success" id="save-category">Lưu</button>
-                </div>
-            </form>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                	<span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Chỉnh Sửa Chuyên Mục</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form-update-category" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Tên chuyên mục</label>
+                        <input type="hidden" name="category-id" id="category-id">
+                        <input type="text" class="form-control" id="category-name" name="category-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Đường dẫn</label>
+                        <input type="text" class="form-control" id="category-slug" name="category-slug">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-success" id="save-category">Lưu</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-</div>
+<!-- End modal update -->
 <!-- Modal Delete-->
 <div class="modal fade" id="show-delete-category" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Xóa Chuyên Mục</h4>
-        </div>
-        <div class="modal-body">
-            <form id="form-delete-category" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="category-id" id="category-id">
-                <p>Bạn có chắc muốn xóa chuyên mục <strong id="category-name"></strong> cũng như các bài viết trong đó?</p>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-danger" id="category-delete">Xóa</button>
-                </div>
-            </form> 
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Xóa Chuyên Mục</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form-delete-category" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="category-id" id="category-id">
+                    <p>Bạn có chắc muốn xóa chuyên mục <strong id="category-name"></strong> cũng như các bài viết trong đó?</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-danger" id="category-delete">Xóa</button>
+                    </div>
+                </form> 
+            </div>
         </div>
     </div>
 </div>
-</div>
+<!-- End modal delete -->
 @endsection
 @section('script')
 <script type="text/javascript">
@@ -91,6 +93,7 @@ Danh sách chuyên mục
             { data: 'action', name: 'action' },
             ]
         });
+
         /* Bind data record to form update modal*/
         $('#show-update-category').on('show.bs.modal', function (eventClick) {
             var buttonClick = $(eventClick.relatedTarget) // Button that triggered the modal
@@ -120,11 +123,12 @@ Danh sách chuyên mục
                     } else {
                         dataTable.ajax.reload();
                         $('#show-update-category').modal('hide');
-                        alert("Cập nhật thất bại !");
+                        alert(dataResult.error);
                     }
                 }
             })
         });
+
         /* Bind category name to modal*/
         $('#show-delete-category').on('show.bs.modal', function (eventClick) {
             var buttonDelte = $(eventClick.relatedTarget) // Button that triggered the modal
@@ -135,6 +139,7 @@ Danh sách chuyên mục
             modal.find('.modal-body #category-name').html(categoryName);
             modal.find('.modal-body #category-id').val(categoryId);
         });
+
         /* Send request delete Ajax*/
         $("#form-delete-category").on("submit", function(eventSubmit) {
             eventSubmit.preventDefault();
@@ -150,7 +155,7 @@ Danh sách chuyên mục
                     } else {
                         dataTable.ajax.reload();
                         $('#show-delete-category').modal('hide');
-                        alert("Có Lỗi");
+                        alert(dataResult.error);
                     }
                 }
             })

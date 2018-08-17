@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class Posts extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations create table posts.
      *
      * @return void
      */

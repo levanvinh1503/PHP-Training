@@ -9,6 +9,13 @@ Sửa bài viết / {{ $arrayPost->id }}
     <!-- Form Edit Post -->
     <form id="form-add-post" action="{{ route('editpost', $arrayPost->id) }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @if(count($errors)>0)
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $err)
+            {{ $err }}<br>
+            @endforeach
+        </div>
+        @endif
         @if(Session::has('thanhcong'))
         <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
         @endif
@@ -17,9 +24,6 @@ Sửa bài viết / {{ $arrayPost->id }}
             <div class="form-group">
                 <label>Tên bài viết</label>
                 <input class="form-control" type="text" id="post-title" name="post-title" value="{{ $arrayPost->post_title }}" placeholder="Nhập tên chuyên mục">
-                @if($errors->has('post-title'))
-                <p style="color: red">{{ $errors->first('post-title') }}</p>
-                @endif
             </div>
             <div class="form-group">
                 <label>Đường dẫn</label>
@@ -28,16 +32,10 @@ Sửa bài viết / {{ $arrayPost->id }}
             <div class="form-group">
                 <label>Mô tả ngắn</label>
                 <textarea class="form-control" type="text" id="post-description" rows="4" name="post-description" placeholder="Mô tả ngắn">{{ $arrayPost->post_description }}</textarea>
-                @if($errors->has('post-description'))
-                <p style="color: red">{{ $errors->first('post-description') }}</p>
-                @endif
             </div>
             <div class="form-group">
                 <label>Nội Dung</label>
                 <textarea name="post-content" id="post-content" class="form-control">{{ $arrayPost->post_content }}</textarea>
-                @if($errors->has('post-content'))
-                <p style="color: red">{{ $errors->first('post-content') }}</p>
-                @endif
             </div>
         </div>
         <!-- End block left -->
@@ -73,16 +71,20 @@ Sửa bài viết / {{ $arrayPost->id }}
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
+        /*Convert string to url*/
         $('#category-name').keyup(function () {
             var titleInput = $(this).val();
             var slugResult = ChangeToSlug(titleInput);
             $('#category-slug').val(slugResult);
         });
+        /*Convert string to url*/
         $('#post-title').keyup(function () {
             var titleInput = $(this).val();
             var slugResult = ChangeToSlug(titleInput);
             $('#post-slug').val(slugResult);
         });
+
+        /*Import ckeditor*/
         CKEDITOR.replace('post-content', {
             filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
             filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',

@@ -1,29 +1,35 @@
-function ChangeToSlug(title)
+/**
+ * Convert string to url
+ *
+ * @param string titleInput
+ *
+ * @return string
+ */
+function ChangeToSlug(titleInput)
 {
-    var slug;
-    //Đổi chữ hoa thành chữ thường
-    slug = title.toLowerCase();
-    //Đổi ký tự có dấu thành không dấu
-    slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
-    slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
-    slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
-    slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
-    slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
-    slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
-    slug = slug.replace(/đ/gi, 'd');
-    //Xóa các ký tự đặt biệt
-    slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
-    //Đổi khoảng trắng thành ký tự gạch ngang
-    slug = slug.replace(/ /gi, "-");
-    //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
-    //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
-    slug = slug.replace(/\-\-\-\-\-/gi, '-');
-    slug = slug.replace(/\-\-\-\-/gi, '-');
-    slug = slug.replace(/\-\-\-/gi, '-');
-    slug = slug.replace(/\-\-/gi, '-');
-    //Xóa các ký tự gạch ngang ở đầu và cuối
-    slug = '@' + slug + '@';
-    slug = slug.replace(/\@\-|\-\@|\@/gi, '');
-    //In slug ra textbox có id “slug”
-    return slug;
+    var slugUrl;
+    /*All alphabetic characters are converted to lowercase*/
+    slugUrl = titleInput.toLowerCase();
+    /*Change character with unsigned*/
+    slugUrl = slugUrl.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+    slugUrl = slugUrl.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+    slugUrl = slugUrl.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+    slugUrl = slugUrl.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+    slugUrl = slugUrl.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+    slugUrl = slugUrl.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+    slugUrl = slugUrl.replace(/đ/gi, 'd');
+    /*Delete special characters*/
+    slugUrl = slugUrl.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+    /*Change the whitespace to a dash character*/
+    slugUrl = slugUrl.replace(/ /gi, "-");
+    /*Converts multiple consecutive dashes into a dash character*/
+    slugUrl = slugUrl.replace(/\-\-\-\-\-/gi, '-');
+    slugUrl = slugUrl.replace(/\-\-\-\-/gi, '-');
+    slugUrl = slugUrl.replace(/\-\-\-/gi, '-');
+    slugUrl = slugUrl.replace(/\-\-/gi, '-');
+    /*Remove hyphens at the beginning and end*/
+    slugUrl = '@' + slugUrl + '@';
+    slugUrl = slugUrl.replace(/\@\-|\-\@|\@/gi, '');
+
+    return slugUrl;
 }

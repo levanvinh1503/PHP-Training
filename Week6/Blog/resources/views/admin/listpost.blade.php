@@ -6,6 +6,7 @@
     <!-- Block list post -->
     <div class="list-category-admin">
         <h2 class="title-dashborad">Danh sách bài viết</h2>
+        
         @if(Session::has('thanhcong'))
         <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
         @endif

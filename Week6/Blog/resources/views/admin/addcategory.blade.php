@@ -25,7 +25,7 @@ Thêm chuyên mục
         </div>
         <div class="form-group">
             <label>Đường dẫn</label>
-            <input class="form-control" readonly="readonly" type="text" id="category-slug" name="category-slug" placeholder="Đường dẫn chuyên mục (tạo tự động)"> 
+            <input class="form-control" type="text" id="category-slug" name="category-slug" placeholder="Đường dẫn chuyên mục (tạo tự động)"> 
         </div>
         <div class="form-group">
             <input class="btn btn-primary" type="submit" name="add-category" value="Thêm">
@@ -38,6 +38,7 @@ Thêm chuyên mục
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
+        /*Convert string to url*/
         $('#category-name').keyup(function () {
             var titleInput = $(this).val();
             var slugResult = ChangeToSlug(titleInput);

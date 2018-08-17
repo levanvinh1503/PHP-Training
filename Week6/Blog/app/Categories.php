@@ -15,6 +15,8 @@ class Categories extends Model
 
     /**
      * Get the post that owns the categories.
+     * 
+     * @return array
      */
     public function CategoryPost()
     {

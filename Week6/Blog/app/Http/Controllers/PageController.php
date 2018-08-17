@@ -11,13 +11,10 @@ use Illuminate\Support\MessageBag;
 use App\Categories;
 use App\Posts;
 
-/**
- * PageController
- */
 class PageController extends Controller
 {
     /**
-     * Show home interface
+     * Display home interface
      * 
      * @return Response
      */
@@ -29,7 +26,7 @@ class PageController extends Controller
     }
 
     /**
-     * Show login interface
+     * Display login interface
      * 
      * @return Response
      */
@@ -41,11 +38,14 @@ class PageController extends Controller
     /**
      * Show category interface
      * 
+     * @param string $slugCategory
+     * 
      * @return Response
      */
     public function GetCategory($slugCategory)
     {
         $arrayCategory = Categories::where('category_slug', $slugCategory)->first();
+        /*Sort the post in descending order by created_at.*/
         $arrayPost = Posts::where('category_id_fkey', $arrayCategory->id)
         ->orderBy('created_at','des')
         ->get();
@@ -53,20 +53,25 @@ class PageController extends Controller
     }
 
     /**
-     * Show post detail interface
+     * Display post detail interface
+     * 
+     * @param string $slugPost
      * 
      * @return Response
      */
     public function GetPost($slugPost)
     {
         $arrayPost = Posts::where('post_slug', $slugPost)->first();
+        /*Increase post views*/
         $arrayPost->post_view = $arrayPost->post_view + 1;
         $arrayPost->save();
+        /*List of related post*/
         $arrayPostOther = Posts::where('post_slug', '!=', $slugPost)
         ->where('category_id_fkey', $arrayPost->category_id_fkey)
         ->get();
         return view('pages.posts', compact('arrayPost', 'arrayPostOther'));
     }
+
     /**
      * Check login account
      * 
@@ -76,6 +81,7 @@ class PageController extends Controller
      */
     public function PostLogin(Request $requestData)
     {
+        /*Check form input validate*/
         $this->validate($requestData, 
             [
                 'username-login' => 'required|min:5|max:191',
@@ -89,8 +95,11 @@ class PageController extends Controller
                 'password-login.min' => 'Mật khẩu phải lớn hơn 8 kí tự',
                 'password-login.max' => 'Mật khẩu tối đa 191 kí tự'
             ]);
+        /*The username and password is valid...*/
+
         $username = $requestData->input('username-login');
         $password = $requestData->input('password-login');
+        /*Check login with username and password*/
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             return redirect()->route('indexadmin');
         } else {
